@@ -6,6 +6,15 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+    public function verdict_lists()
+    {
+        return $this->hasMany('App\VerdictList');
+    }
+    
+    public function pending_lists()
+    {
+        return $this->hasMany('App\PendingList');
+    }
     /**
      * The attributes that are mass assignable.
      *

@@ -52,7 +52,12 @@ class AuthController extends Controller
         ]);
         
         if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
-            return redirect()->intended('dashboard');
+            $user = Auth::user();
+            if ($user->access_role == 'god') {
+                return redirect('dashboard');
+            }else{
+                return redirect('admin');   
+            }
         }else{
             return Redirect::to('/login')->withErrors("Your email or password is incorrect.");
         }
@@ -87,5 +92,10 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+    
+    public function logout(){
+        Auth::logout();
+        return Redirect::to('/');
     }
 }

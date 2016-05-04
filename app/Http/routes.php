@@ -22,3 +22,4 @@ Route::get('/login', function () {
 Route::post('/login', "Auth\AuthController@postLogin");
 Route::get('/dashboard', "DashboardController@getGodPage");
 Route::get('/admin', "DashboardController@getAdminPage");
+Route::post('/send_verdict', "DashboardController@sendVerdict");

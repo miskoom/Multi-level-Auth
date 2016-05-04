@@ -54,9 +54,9 @@ class AuthController extends Controller
         if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
             $user = Auth::user();
             if ($user->access_role == 'god') {
-                return redirect('dashboard');
+                return Redirect::to('/dashboard');
             }else{
-                return redirect('admin');   
+                return Redirect::to('/admin');
             }
         }else{
             return Redirect::to('/login')->withErrors("Your email or password is incorrect.");

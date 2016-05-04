@@ -9,25 +9,9 @@
   <!-- Site Properties -->
   <title>Payroll Auth - Dashboard</title>
 
-  <link rel="stylesheet" type="text/css" href="/uilib/components/reset.css">
-  <link rel="stylesheet" type="text/css" href="/uilib/components/site.css">
-
-  <link rel="stylesheet" type="text/css" href="/uilib/components/container.css">
-  <link rel="stylesheet" type="text/css" href="/uilib/components/grid.css">
-  <link rel="stylesheet" type="text/css" href="/uilib/components/header.css">
-  <link rel="stylesheet" type="text/css" href="/uilib/components/image.css">
-  <link rel="stylesheet" type="text/css" href="/uilib/components/menu.css">
-  <link rel="stylesheet" type="text/css" href="/uilib/components/table.css">
-  <link rel="stylesheet" type="text/css" href="/uilib/components/transition.css">
-  <link rel="stylesheet" type="text/css" href="/uilib/components/button.css">
-
-  <link rel="stylesheet" type="text/css" href="/uilib/components/divider.css">
-  <link rel="stylesheet" type="text/css" href="/uilib/components/list.css">
-  <link rel="stylesheet" type="text/css" href="/uilib/components/segment.css">
-  <link rel="stylesheet" type="text/css" href="/uilib/components/dropdown.css">
-  <link rel="stylesheet" type="text/css" href="/uilib/components/icon.css">
-  <link rel="stylesheet" type="text/css" href="/uilib/components/message.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.js"></script>
+  <script type="text/javascript" src="/uilib/semantic.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/uilib/semantic.min.css">
   <script type="text/javascript">
 
   </script>

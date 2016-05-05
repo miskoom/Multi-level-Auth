@@ -68,14 +68,6 @@
 
   <div class="ui main text container" style="min-height: 350px;">
     <!--<h1 class="ui header">List of names to approve</h1>-->
-
-    <div class="ui attached icon info message">
-      <i class="info circle icon"></i>
-      <div class="content">
-        List of names to approve
-      </div>
-    </div>
-
     <div class="column">
         @yield('content')
   </div>

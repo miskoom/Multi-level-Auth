@@ -1,6 +1,13 @@
 @extends('layouts.dashboard')
 
 @section('content')
+    <div class="ui attached icon info message">
+      <i class="info circle icon"></i>
+      <div class="content">
+        List of names to approve
+      </div>
+    </div>
+    
     {!! Form::open(array('url' => '/send_verdict', 'method'=>'POST', 'class'=>'ui large form')) !!}
     <table class="ui bottom attached celled table">
       <thead>
@@ -11,6 +18,7 @@
                   <div class="inline field">
                     <div class="ui checkbox">
                       <input class="hidden" name="selectAll" type="checkbox" id="checkAll"/>
+                      <label for="">All</label>
                     </div>
                   </div>
                 </div>

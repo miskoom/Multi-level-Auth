@@ -21,56 +21,56 @@ class UsersTableSeeder extends Seeder
         ));
         
         User::create(array(
-            'name'     =>   'User I',
+            'name'     =>   'Christian Akpabio',
             'email'    =>   'a@nhubnigeria.com',
             'access_role' =>  'user',
             'password' =>   Hash::make('password'),
         ));
         
         User::create(array(
-            'name'     =>   'User II',
+            'name'     =>   'Lillian Galadima',
             'email'    =>   'b@nhubnigeria.com',
             'access_role' =>  'user',
             'password' =>   Hash::make('password'),
         ));
         
         User::create(array(
-            'name'     =>   'User III',
+            'name'     =>   'Ernest Offiong',
             'email'    =>   'c@nhubnigeria.com',
             'access_role' =>  'user',
             'password' =>   Hash::make('password'),
         ));
         
         User::create(array(
-            'name'     =>   'User IV',
+            'name'     =>   'Joseph John',
             'email'    =>   'd@nhubnigeria.com',
             'access_role' =>  'user',
             'password' =>   Hash::make('password'),
         ));
         
         User::create(array(
-            'name'     =>   'User V',
+            'name'     =>   'Feyit Stephen',
             'email'    =>   'e@nhubnigeria.com',
             'access_role' =>  'user',
             'password' =>   Hash::make('password'),
         ));
         
         User::create(array(
-            'name'     =>   'User VI',
+            'name'     =>   'Madaki Fatson',
             'email'    =>   'f@nhubnigeria.com',
             'access_role' =>  'user',
             'password' =>   Hash::make('password'),
         ));
         
         User::create(array(
-            'name'     =>   'User VII',
+            'name'     =>   'Retnan Daser',
             'email'    =>   'g@nhubnigeria.com',
             'access_role' =>  'user',
             'password' =>   Hash::make('password'),
         ));
         
         User::create(array(
-            'name'     =>   'User VIII',
+            'name'     =>   'Esther Idika',
             'email'    =>   'h@nhubnigeria.com',
             'access_role' =>  'user',
             'password' =>   Hash::make('password'),

@@ -17,10 +17,10 @@ class PendingListsTableSeeder extends Seeder
         // for ($i=0; $i < 10; $i++) {
         $serviceNo = 0;
             PendingList::create(array(
-                'first_name'     => 'User 1',
-                'middle_name' => 'm',
-                'last_name' => 'Last',
-                'service_no' => ++$serviceNo,
+                'first_name'     => 'John',
+                'middle_name' => '',
+                'last_name' => 'Doe',
+                'service_no' => '4582421',
                 'department' => 'Finance',
                 'status' => 0,
                 'employment_date' => '4th Nov, 2016',
@@ -28,10 +28,10 @@ class PendingListsTableSeeder extends Seeder
             ));
 
             PendingList::create(array(
-                'first_name'     => 'User 2',
-                'middle_name' => 'm',
-                'last_name' => 'Last',
-                'service_no' => ++$serviceNo,
+                'first_name'     => 'Aaron',
+                'middle_name' => 'M.',
+                'last_name' => 'Smith',
+                'service_no' => '4582426',
                 'department' => 'Engineering',
                 'status' => 0,
                 'employment_date' => '4th Nov, 2016',
@@ -39,10 +39,10 @@ class PendingListsTableSeeder extends Seeder
             ));
 
             PendingList::create(array(
-                'first_name'     => 'User 3',
-                'middle_name' => 'm',
-                'last_name' => 'Last',
-                'service_no' => ++$serviceNo,
+                'first_name'     => 'Larry',
+                'middle_name' => '',
+                'last_name' => 'Wall',
+                'service_no' => '4582424',
                 'department' => 'Administration',
                 'status' => 0,
                 'employment_date' => '4th Nov, 2016',

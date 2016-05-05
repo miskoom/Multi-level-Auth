@@ -10,6 +10,7 @@ use Redirect;
 
 use App\PendingList;
 use App\VerdictList;
+use App\User;
 
 class DashboardController extends Controller
 {
@@ -32,7 +33,7 @@ class DashboardController extends Controller
         $selected = $request->get('selected');
         
         if(count($selected) == 0){
-            return Redirect::to('/admin')->withErrors("Please select at least an employee, to approve or disapprove");
+            return Redirect::to('/admin')->withErrors("Please select at least an employee to approve or disapprove");
         }
         
         for($i = 0; $i < count($selected); $i++){
@@ -116,8 +117,43 @@ class DashboardController extends Controller
     }
     
     public function getEmployee($id){
-        $employee = VerdictList::with('pending_lists')->with('user')->where('pending_lists_id', $id)->get();
+        
+        if(Auth::user()->access_role != "god"){
+            return Redirect::to('/login');
+        }
+        
+        $employeeVerdicts = VerdictList::with('pending_lists')->with('user')->where('pending_lists_id', $id)->get();
         $targetEmployee = PendingList::find($id);
-        return view('show_employee', ['employee' => $employee, 'targetEmployee' => $targetEmployee]);
+        $authorizedPersons = User::where('access_role', 'user')->get();
+        $totalAuthorizedPersons = count($authorizedPersons);
+        $confirmCounter = 0;
+        foreach($authorizedPersons as $authorizedPerson){
+            foreach($employeeVerdicts as $employeeVerdict){
+                if($employeeVerdict->status == 1 && $employeeVerdict->user->id == $authorizedPerson->id){
+                    $confirmCounter++;
+                }
+            }
+        }
+        $showConfirm = false;
+        if($confirmCounter == $totalAuthorizedPersons || $confirmCounter == 3){
+            $showConfirm = true;
+        }
+        return view('show_employee', ['employee' => $employeeVerdicts, 
+        'targetEmployee' => $targetEmployee, 'showConfirm' => $showConfirm]);
+    }
+    
+    public function sendConfirm(Request $request, $id){
+        
+        if(Auth::user()->access_role != "god"){
+            return Redirect::to('/login');
+        }
+        $targetEmployee = PendingList::find($id);
+        if($targetEmployee){
+            $targetEmployee->status = 1;
+            $targetEmployee->save();
+            return Redirect::to('/dashboard/employee/' . $id);
+        }else{
+            return Redirect::to('/dashboard/employee/' . $id);
+        }
     }
 }

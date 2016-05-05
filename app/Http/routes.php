@@ -28,3 +28,4 @@ Route::get('/dashboard', "DashboardController@getGodPage");
 Route::get('/dashboard/add_employee', "DashboardController@getAddEmployee");
 Route::post('/dashboard/add_employee', "DashboardController@addEmployee");
 Route::get('/dashboard/employee/{id}', "DashboardController@getEmployee");
+Route::post('/dashboard/employee/{id}', "DashboardController@sendConfirm");

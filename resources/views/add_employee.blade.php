@@ -1,6 +1,17 @@
 @extends('layouts.dashboard')
 
 @section('content')
+
+  @if (count($errors) > 0)
+        <div class="ui message" style="color:#9F3A38;font-size: 1em;box-shadow: 0px 0px 0px 1px #E0B4B4 inset, 0px 0px 0px 0px transparent; background-color: #FFF6F6;">
+            <ul class="list">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+  @endif
+    
    {!! Form::open(array('url' => '/dashboard/add_employee', 'method'=>'POST', 'class'=>'ui small equal width form')) !!}
       <h4 class="ui dividing header">Personal Information</h4>
       

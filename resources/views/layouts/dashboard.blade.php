@@ -38,7 +38,7 @@
 </head>
 <body>
 
-  <div class="ui fixed inverted menu">
+  <div class="ui fixed tilt menu">
     <div class="ui container">
       <a href="#" class="header item">
         <img class="logo" src="/assets/images/logo.png">
@@ -48,6 +48,8 @@
       <div class="ui simple dropdown item"> Menu <i class="dropdown icon"></i>
         <div class="menu">
           <a class="item" href="/dashboard/add_employee">Add Employee</a>
+          <div class="header">Account</div>
+          <a class="item" href="/logout">Log out</a>
           <!--
           <div class="divider"></div>
           <div class="header">Header Item</div>

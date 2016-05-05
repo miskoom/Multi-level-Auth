@@ -8,6 +8,16 @@
       </div>
     </div>-->
     
+    @if (count($errors) > 0)
+        <div class="ui message" style="color:#9F3A38;font-size: 1em;box-shadow: 0px 0px 0px 1px #E0B4B4 inset, 0px 0px 0px 0px transparent; background-color: #FFF6F6;">
+            <ul class="list">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    
     <div class="ui attached message">
       <div class="header">
         List of staff Pending Approval!
@@ -66,8 +76,13 @@
     
     <br/>
     
-    <span><input type="submit" name="approve" class="ui primary button" value="Approve"></span>
-    <span><input type="submit" name="disapprove" class="ui button" value="Disapprove"></span>
+    <!--<span><input type="submit" name="approve" class="ui primary button" value="Approve"></span>-->
+    <!--<span><input type="submit" name="disapprove" class="ui button" value="Disapprove"></span>-->
+    <div class="ui buttons">
+    <button class="ui button" name="disapprove" value="Disapprove">Disapprove</button>
+    <div class="or"></div>
+    <button class="ui positive button" name="approve" value="Approve">Approve</button>
+    </div>
     {!! Form::close() !!}
     <script type="text/javascript">
     $( document ).ready(function() {

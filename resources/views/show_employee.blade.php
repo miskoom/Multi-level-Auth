@@ -27,6 +27,15 @@
         @endforeach
       </tbody>
     </table>
+    @if ($showConfirm && $targetEmployee->status == 0)
+    {!! Form::open(array('url' => '/dashboard/employee/' . $targetEmployee->id, 'method'=>'POST', 'class'=>'ui small equal width form')) !!}
+    <span><input type="submit" name="confirm" class="ui positive button" value="Confirm"></span>
+    {!! Form::close() !!}
+    @endif
+    
+    @if ($targetEmployee->status == 1)
+    <span><div name="confirm" class="ui button disabled">Confirmed!!</div>
+    @endif
     
     <script type="text/javascript">
     $( document ).ready(function() {

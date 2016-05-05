@@ -135,7 +135,7 @@ class DashboardController extends Controller
             }
         }
         $showConfirm = false;
-        if($confirmCounter == $totalAuthorizedPersons || $confirmCounter == 3){
+        if($confirmCounter == $totalAuthorizedPersons/* || $confirmCounter == 3*/){
             $showConfirm = true;
         }
         return view('show_employee', ['employee' => $employeeVerdicts, 

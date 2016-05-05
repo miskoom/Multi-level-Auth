@@ -23,6 +23,7 @@ class PendingListsTableSeeder extends Seeder
                 'service_no' => ++$serviceNo,
                 'department' => 'Finance',
                 'status' => 0,
+                'employment_date' => '4th Nov, 2016',
                 'user_id' => 1 //add another group to creat this entry - not admin
             ));
 
@@ -33,6 +34,7 @@ class PendingListsTableSeeder extends Seeder
                 'service_no' => ++$serviceNo,
                 'department' => 'Engineering',
                 'status' => 0,
+                'employment_date' => '4th Nov, 2016',
                 'user_id' => 1
             ));
 
@@ -43,6 +45,7 @@ class PendingListsTableSeeder extends Seeder
                 'service_no' => ++$serviceNo,
                 'department' => 'Administration',
                 'status' => 0,
+                'employment_date' => '4th Nov, 2016',
                 'user_id' => 1
             ));
             

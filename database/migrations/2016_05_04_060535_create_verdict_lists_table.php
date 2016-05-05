@@ -18,13 +18,14 @@ class CreateVerdictListsTable extends Migration
             
             $table->increments('id');
             $table->integer('status')->default(0);
+            $table->integer('enabled')->default(1);
             $table->integer('user_id')->unsigned();
-            $table->integer('pending_list_id')->unsigned();
+            $table->integer('pending_lists_id')->unsigned();
             $table->string('comment')->default('');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('pending_list_id')->references('id')->on('pending_lists');
+            $table->foreign('pending_lists_id')->references('id')->on('pending_lists');
         });
     }
 

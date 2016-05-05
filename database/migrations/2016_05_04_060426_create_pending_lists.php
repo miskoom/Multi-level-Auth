@@ -24,6 +24,7 @@ class CreatePendingLists extends Migration
             $table->string('department');
             $table->integer('status')->default(0);
             $table->integer('user_id')->unsigned();
+            $table->string('employment_date');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('content')
-   <form class="ui small equal width form">
+   {!! Form::open(array('url' => '/dashboard/add_employee', 'method'=>'POST', 'class'=>'ui small equal width form')) !!}
       <h4 class="ui dividing header">Personal Information</h4>
       
       <div class="three fields">
@@ -22,17 +22,20 @@
     <div class="field">
         <h4 class="ui dividing header">Employer Information</h4>
         <div class="fields">
-          <div class="required ten wide field">
+          <div class="required five wide field">
             <label>Department</label>
             <input name="department" placeholder="Department" type="text">
           </div>
-          <div class="required five wide field">
+          <div class="required three wide field">
+              <label>Employment Date</label>
+            <input name="employment_date" placeholder="Employment Date" type="text">
+          </div>
+          <div class="required four wide field">
               <label>Service No</label>
-            <input name="service_number" placeholder="Service No" type="text">
+            <input name="service_no" placeholder="Service No" type="text">
           </div>
         </div>
   </div>
-  
-  
-  </form>
+    <span><input type="submit" name="approve" class="ui primary button" value="Add Employee"></span>
+    {!! Form::close() !!}
 @stop

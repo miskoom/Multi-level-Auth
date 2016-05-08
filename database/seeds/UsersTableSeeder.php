@@ -41,12 +41,12 @@ class UsersTableSeeder extends Seeder
             'password' =>   Hash::make('password'),
         ));
         
-    //     User::create(array(
-    //         'name'     =>   'Joseph John',
-    //         'email'    =>   'd@nhubnigeria.com',
-    //         'access_role' =>  'user',
-    //         'password' =>   Hash::make('password'),
-    //     ));
+        User::create(array(
+            'name'     =>   'Joseph John',
+            'email'    =>   'd@nhubnigeria.com',
+            'access_role' =>  'user',
+            'password' =>   Hash::make('password'),
+        ));
         
     //     User::create(array(
     //         'name'     =>   'Feyit Stephen',

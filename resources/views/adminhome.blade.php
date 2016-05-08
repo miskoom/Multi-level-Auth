@@ -62,6 +62,9 @@
         @endforeach
       </tbody>
     </table>
+    <?php
+    if(count($pendingLists) != 0){
+    ?>
       <div class="field">
         <label>Comment</label>
         <textarea rows="2" name="comment"></textarea>
@@ -73,6 +76,9 @@
       <button class="ui positive button" type="submit" name="approve" value="Approve">Approve</button>
       <input type="hidden" name="action" value="" id="action"/>
     </div>
+    <?php
+    }
+    ?>
     {!! Form::close() !!}
     
     

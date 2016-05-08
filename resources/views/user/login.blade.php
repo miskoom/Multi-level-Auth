@@ -107,7 +107,7 @@
         <div class="field">
           <div class="ui left icon input">
             <i class="lock icon"></i>
-            <input type="password" name="password" placeholder="Password">
+            <input type="password" name="password" placeholder="e.g yahweh">
           </div>
         </div>
         <!--

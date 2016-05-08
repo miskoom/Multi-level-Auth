@@ -76,7 +76,11 @@ class DashboardController extends Controller
     }
     
     public function getGodPage(){
-        return $this->getEmployeeStatus();
+        if(Auth::user()->access_role != "god"){
+            return Redirect::to('/login');
+        }
+        $lists = PendingList::with('user')->where('user_id', Auth::user()->id)->get();
+        return view('god_index', ['lists' => $lists]);
     }
     
     public function getAdminPage(){
@@ -131,13 +135,6 @@ class DashboardController extends Controller
         return Redirect::to('/dashboard');
     }
     
-    public function getEmployeeStatus(){
-        if(Auth::user()->access_role != "god"){
-            return Redirect::to('/login');
-        }
-        $lists = PendingList::with('user')->get();
-        return view('god_index', ['lists' => $lists]);
-    }
     
     public function getEmployee($id){
         
@@ -167,7 +164,8 @@ class DashboardController extends Controller
     
     public function sendConfirm(Request $request, $id){
         
-        if(Auth::user()->access_role != "god"){
+        if(Auth::user()->access_role != "god" || 
+            Auth::user()->access_role != "supergod"){
             return Redirect::to('/login');
         }
         $targetEmployee = PendingList::find($id);
@@ -178,5 +176,76 @@ class DashboardController extends Controller
         }else{
             return Redirect::to('/dashboard/employee/' . $id);
         }
+    }
+    
+    public function getPayroll(Request $request){
+        
+        if(Auth::user()->access_role != "supergod"){
+            return Redirect::to('/login');
+        }
+        
+        $pendingLists = PendingList::where('status', 1)->get();
+        return view('payroll_index', ['pendingLists' => $pendingLists]);
+    }
+    
+    public function getSuperGodPage(){
+        if(Auth::user()->access_role != "supergod"){
+            return Redirect::to('/login');
+        }
+        $lists = PendingList::with('user')->get();
+        return view('super_god_index', ['lists' => $lists]);
+    }
+    
+    public function superGetEmployee($id){
+        
+        if(Auth::user()->access_role != "supergod"){
+            return Redirect::to('/login');
+        }
+        
+        $employeeVerdicts = VerdictList::with('pending_lists')->with('user')->where('pending_lists_id', $id)->get();
+        $targetEmployee = PendingList::find($id);
+        $authorizedPersons = User::where('access_role', 'user')->get();
+        $totalAuthorizedPersons = count($authorizedPersons);
+        $confirmCounter = 0;
+        foreach($authorizedPersons as $authorizedPerson){
+            foreach($employeeVerdicts as $employeeVerdict){
+                if($employeeVerdict->status == 1 && $employeeVerdict->user->id == $authorizedPerson->id){
+                    $confirmCounter++;
+                }
+            }
+        }
+        $showConfirm = false;
+        if($confirmCounter == $totalAuthorizedPersons/* || $confirmCounter == 3*/){
+            $showConfirm = true;
+        }
+        return view('super_show_employee', ['employee' => $employeeVerdicts, 
+        'targetEmployee' => $targetEmployee, 'showConfirm' => $showConfirm]);
+    }
+    
+    public function superAddEmployee(Request $request){
+        if(Auth::user()->access_role != "supergod"){
+            return Redirect::to('/login');
+        }
+        
+        $this->validate($request, [
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'service_no' => 'required',
+            'department' => 'required',
+            'employment_date' => 'required',
+        ]);
+        
+        //the validate method ensures we don't get here on failure
+        
+        $pendingList = new PendingList;
+        $pendingList->first_name = $request->input('first_name');
+        $pendingList->middle_name = $request->input('middle_name');
+        $pendingList->last_name = $request->input('last_name');
+        $pendingList->service_no = $request->input('service_no');
+        $pendingList->department = $request->input('department');
+        $pendingList->employment_date = $request->input('employment_date');
+        $pendingList->user()->associate(Auth::user());
+        $pendingList->save();
+        return Redirect::to('/super_dashboard');
     }
 }

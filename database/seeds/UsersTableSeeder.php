@@ -13,65 +13,73 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->delete();
+        
         User::create(array(
-            'name'     =>   'nHub Nigeria',
-            'email'    =>   'info@nhubnigeria.com',
+            'name'     =>   'Payroll Super User',
+            'email'    =>   'super@payroll.ng',
+            'access_role' =>  'supergod',
+            'password' =>   Hash::make('yahweh'),
+        ));
+        
+        User::create(array(
+            'name'     =>   'Payroll Manager',
+            'email'    =>   'info@payroll.ng',
             'access_role' =>  'god',
             'password' =>   Hash::make('yahweh'),
         ));
         
         User::create(array(
             'name'     =>   'Christian Akpabio',
-            'email'    =>   'a@nhubnigeria.com',
+            'email'    =>   'a@payroll.ng',
             'access_role' =>  'user',
             'password' =>   Hash::make('password'),
         ));
         
         User::create(array(
             'name'     =>   'Lillian Galadima',
-            'email'    =>   'b@nhubnigeria.com',
+            'email'    =>   'b@payroll.ng',
             'access_role' =>  'user',
             'password' =>   Hash::make('password'),
         ));
         
         User::create(array(
             'name'     =>   'Ernest Offiong',
-            'email'    =>   'c@nhubnigeria.com',
+            'email'    =>   'c@payroll.ng',
             'access_role' =>  'user',
             'password' =>   Hash::make('password'),
         ));
         
         User::create(array(
             'name'     =>   'Joseph John',
-            'email'    =>   'd@nhubnigeria.com',
+            'email'    =>   'd@payroll.ng',
             'access_role' =>  'user',
             'password' =>   Hash::make('password'),
         ));
         
     //     User::create(array(
     //         'name'     =>   'Feyit Stephen',
-    //         'email'    =>   'e@nhubnigeria.com',
+    //         'email'    =>   'e@payroll.ng',
     //         'access_role' =>  'user',
     //         'password' =>   Hash::make('password'),
     //     ));
         
     //     User::create(array(
     //         'name'     =>   'Madaki Fatson',
-    //         'email'    =>   'f@nhubnigeria.com',
+    //         'email'    =>   'f@payroll.ng',
     //         'access_role' =>  'user',
     //         'password' =>   Hash::make('password'),
     //     ));
         
     //     User::create(array(
     //         'name'     =>   'Retnan Daser',
-    //         'email'    =>   'g@nhubnigeria.com',
+    //         'email'    =>   'g@payroll.ng',
     //         'access_role' =>  'user',
     //         'password' =>   Hash::make('password'),
     //     ));
         
     //     User::create(array(
     //         'name'     =>   'Esther Idika',
-    //         'email'    =>   'h@nhubnigeria.com',
+    //         'email'    =>   'h@payroll.ng',
     //         'access_role' =>  'user',
     //         'password' =>   Hash::make('password'),
     //     ));

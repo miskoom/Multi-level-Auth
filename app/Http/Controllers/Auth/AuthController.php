@@ -55,6 +55,8 @@ class AuthController extends Controller
             $user = Auth::user();
             if ($user->access_role == 'god') {
                 return Redirect::to('/dashboard');
+            }else if($user->access_role == 'supergod'){
+                return Redirect::to('/super_dashboard');
             }else{
                 return Redirect::to('/admin');
             }

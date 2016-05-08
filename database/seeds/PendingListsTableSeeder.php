@@ -49,6 +49,39 @@ class PendingListsTableSeeder extends Seeder
                 'user_id' => 1
             ));
             
+            PendingList::create(array(
+                'first_name'     => 'Retnan',
+                'middle_name' => '',
+                'last_name' => 'Daser',
+                'service_no' => '4582403',
+                'department' => 'Administration',
+                'status' => 1,
+                'employment_date' => '4th Nov, 2016',
+                'user_id' => 1
+            ));
+            
+            PendingList::create(array(
+                'first_name'     => 'Samantha',
+                'middle_name' => '',
+                'last_name' => 'Hunt',
+                'service_no' => '4582495',
+                'department' => 'Finance',
+                'status' => 1,
+                'employment_date' => '4th Nov, 2016',
+                'user_id' => 1
+            ));
+            
+            PendingList::create(array(
+                'first_name'     => 'Linux',
+                'middle_name' => '',
+                'last_name' => 'Torvalds',
+                'service_no' => '4582473',
+                'department' => 'Operations',
+                'status' => 1,
+                'employment_date' => '4th Nov, 2016',
+                'user_id' => 1
+            ));
+            
         // }
     }
 }

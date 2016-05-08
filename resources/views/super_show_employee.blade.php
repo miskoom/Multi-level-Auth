@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('layouts.super_dashboard')
 
 @section('content')
     <div class="ui attached message">
@@ -35,7 +35,7 @@
     ?>
     <br/>
     @if ($showConfirm && $targetEmployee->status == 0)
-    {!! Form::open(array('url' => '/dashboard/employee/' . $targetEmployee->id, 'method'=>'POST', 'class'=>'ui small equal width form')) !!}
+    {!! Form::open(array('url' => '/super_dashboard/employee/' . $targetEmployee->id, 'method'=>'POST', 'class'=>'ui small equal width form')) !!}
     <span><input type="submit" name="confirm" class="ui positive button" value="Confirm"></span>
     {!! Form::close() !!}
     @endif

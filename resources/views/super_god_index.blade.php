@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('layouts.super_dashboard')
 
 @section('scripts')
   <!--<script type="text/javascript" src="//cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>-->
@@ -27,7 +27,7 @@
         <th>Service No</th>
         <th>Department</th>
         <th>Employment Date</th>
-        <!--<th>Added By</th>-->
+        <th>Added By</th>
         <!--<th>Created At</th>-->
       </thead>
       <tbody>
@@ -40,7 +40,7 @@
               <td>{{ $item->service_no}}</td>
               <td>{{ $item->department}}</td>
               <td>{{ $item->employment_date}}</td>
-              <!--<td>{{ $item->user->name}}</td>-->
+              <td>{{ $item->user->name}}</td>
               <!--<td>{{ $item->created_at}}</td>-->
             </tr>
         @endforeach

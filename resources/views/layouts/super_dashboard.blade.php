@@ -50,6 +50,7 @@
       <div class="ui simple dropdown item"> Menu <i class="dropdown icon"></i>
         <div class="menu">
           <a class="item" href="/dashboard/add_employee">Add Employee</a>
+          <a class="item" href="/super_dashboard/payroll">Payroll</a>
           <a class="item" href="/logout">Log out</a>
           <!--
           <div class="divider"></div>
@@ -69,11 +70,14 @@
     </div>
   </div>
 
-  <div class="ui main text container" style="min-height: 350px;">
+
+  <div class="ui main">
     <!--<h1 class="ui header">List of names to approve</h1>-->
-    <div class="column">
+    <div class="ui page grid" style="min-height: 350px;margin-top: 50px;">
+        <div class="column">
         @yield('content')
-  </div>
+        </div>
+    </div>
   </div>
 
   <div class="ui inverted vertical footer segment">

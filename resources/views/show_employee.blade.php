@@ -37,7 +37,7 @@
     $count = count($employee);
     if($count != 0){
     ?>
-    <table class="ui bottom attached celled table">
+    <table class="ui celled table">
       <thead>
         <th>Verdict</th>
         <th>Authoriser's Name</th>

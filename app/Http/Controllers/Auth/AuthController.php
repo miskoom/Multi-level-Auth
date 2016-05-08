@@ -40,7 +40,24 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+        $this->middleware($this->guestMiddleware(), ['except' => ['logout','postSignUp']]);
+    }
+    
+    public function postSignUp(Request $request){
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|min:6',
+            'access_role' => 'required|min:3',
+        ]);
+        
+        User::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => bcrypt($request->input('password')),
+            'access_role' => $request->input('access_role'),
+        ]);
+        return Redirect::to('/user');
     }
     
     public function postLogin(Request $request){
@@ -78,6 +95,7 @@ class AuthController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
+            'access_role' => 'required',
         ]);
     }
 
@@ -95,6 +113,7 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
     
     public function logout(){
         Auth::logout();

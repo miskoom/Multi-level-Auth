@@ -79,7 +79,7 @@ class DashboardController extends Controller
         if(Auth::user()->access_role != "god"){
             return Redirect::to('/login');
         }
-        $lists = PendingList::with('user')->where('user_id', Auth::user()->id)->get();
+        $lists = PendingList::with('user')/*->where('user_id', Auth::user()->id)*/->get();
         return view('god_index', ['lists' => $lists]);
     }
     
@@ -89,7 +89,7 @@ class DashboardController extends Controller
         }
         
         $pendingLists = PendingList::where('status', 0)->get();
-        $myVerictLists = VerdictList::where('user_id', Auth::user()->id)->where('enabled', 1)->get();
+        $myVerictLists = VerdictList::/*where('user_id', Auth::user()->id)->*/where('enabled', 1)->get();
         foreach($pendingLists as $key => $pendingList){
             foreach($myVerictLists as $myVerdictList){
                 if($myVerdictList->pending_lists_id == $pendingList->id){
@@ -290,5 +290,21 @@ class DashboardController extends Controller
             $verdicts = VerdictList::with('pending_lists')->with('user')->get();
         }
         return view('logs', ['verdicts' => $verdicts]);
+    }
+    
+    public function getAddUser(){
+        $user = Auth::user();
+        if($user->access_role  != "supergod"){
+            return Redirect::to('/login');
+        }
+        return view('add_user');
+    }
+    
+    public function userIndex(){
+        $user = Auth::user();
+        if($user->access_role  != "supergod"){
+            return Redirect::to('/login');
+        }
+        return view('user_index', ['users' => User::get()]);
     }
 }

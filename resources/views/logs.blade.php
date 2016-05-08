@@ -21,12 +21,12 @@
     <table class="ui small celled table display" id="dtable">
       <thead>
         <th>Verdict</th>
-        <th>First Name</th>
-        <th>Other Names</th>
+        <th>Full Name</th>
         <th>Service No</th>
         <th>Department</th>
         <th>Employment Date</th>
         <th>Authoriser's Name</th>
+        <th>Comment</th>
         <th>Created At</th>
       </thead>
       <tbody>
@@ -34,12 +34,13 @@
         @foreach ($verdicts as $item)
             <tr>
               <td><i class="{{ $item->status != 0 ? 'checkmark box' : 'thumbs outline down' }} icon"></i></td>
-              <td><a href="/employee_info/{{ $item->pending_lists->id}}">{{ $item->pending_lists->first_name}}</a></td>
-              <td>{{ $item->pending_lists->last_name}} {{ $item->pending_lists->middle_name}}</td>
+              <td><a href="/employee_info/{{ $item->pending_lists->id}}">
+                {{ $item->pending_lists->first_name}}, {{ $item->pending_lists->last_name}} {{ $item->pending_lists->middle_name}}</a></td>
               <td>{{ $item->pending_lists->service_no}}</td>
               <td>{{ $item->pending_lists->department}}</td>
               <td>{{ $item->pending_lists->employment_date}}</td>
               <td>{{ $item->user->name}}</td>
+              <td>{{ $item->comment}}</td>
               <td>{{ $item->created_at}}</td>
             </tr>
         @endforeach

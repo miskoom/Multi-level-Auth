@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('layouts.super_dashboard')
 
 @section('scripts')
   <script type="text/javascript" src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
@@ -14,34 +14,35 @@
 @section('content')
     <div class="ui message">
       <div class="header">
-        List of staff!
+        List of Users!
       </div>
-      <p>List of employees submitted for inclusion into the payroll system.</p>
     </div>
     
     <table class="ui small celled table display" id="dtable">
       <thead>
-        <th>Status</th>
-        <th>First Name</th>
-        <th>Other Names</th>
-        <th>Service No</th>
-        <th>Department</th>
-        <th>Employment Date</th>
-        <th>Added By</th>
-        <!--<th>Created At</th>-->
+        <th>Name</th>
+        <th>Email</th>
+        <th>Access Role</th>
+        <th>Created At</th>
       </thead>
       <tbody>
           
-        @foreach ($lists as $item)
+        @foreach ($users as $item)
             <tr>
-              <td><i class="{{ $item->status != 0 ? 'checkmark box' : 'thumbs outline down' }} icon"></i></td>
-              <td><a href="/dashboard/employee/{{ $item->id}}">{{ $item->first_name}}</a></td>
-              <td>{{ $item->last_name}} {{ $item->middle_name}}</td>
-              <td>{{ $item->service_no}}</td>
-              <td>{{ $item->department}}</td>
-              <td>{{ $item->employment_date}}</td>
-              <td>{{ $item->user->name}}</td>
-              <!--<td>{{ $item->created_at}}</td>-->
+              <td><a href="/user/{{ $item->id}}">{{ $item->name}}</a></td>
+              <td>{{ $item->email}}</td>
+              <td>
+                @if ($item->access_role == "user")
+                    {{ 'user' }}
+                @elseif ($item->access_role == "god")
+                    {{ 'Manager' }}
+                @elseif ($item->access_role == "supergod")
+                    {{ 'Super User' }}
+                @else
+                    {{ 'Unknown' }}
+                @endif
+                </td>
+              <td>{{ $item->created_at}}</td>
             </tr>
         @endforeach
       </tbody>

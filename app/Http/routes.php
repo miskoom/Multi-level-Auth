@@ -39,3 +39,7 @@ Route::post('/super_dashboard/employee/{id}', "DashboardController@superSendConf
 
 Route::get('/logs', "DashboardController@getLogs");
 Route::get('/employee_info/{id}', "DashboardController@getEmployeeInfo");
+
+Route::post('/user/create', "Auth\AuthController@postSignUp");
+Route::get('/user/create', "DashboardController@getAddUser");
+Route::get('/user', "DashboardController@userIndex");

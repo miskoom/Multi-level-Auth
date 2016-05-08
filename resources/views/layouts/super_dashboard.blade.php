@@ -50,6 +50,13 @@
       <a class="item" href="/super_dashboard/add_employee">Add Employee</a>
       <a class="item" href="/super_dashboard/payroll">Payroll</a>
       <a class="item" href="/logs">Logs</a>
+      <div class="ui simple dropdown item">
+        User <i class="dropdown icon"></i>
+        <div class="menu">
+          <a class="item" href="/user">Users</a>
+          <a class="item" href="/user/create">Create User</a>
+        </div>
+      </div>
       <div class="right menu">
         <!--
         <div class="item">

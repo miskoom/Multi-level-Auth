@@ -1,6 +1,6 @@
 <div class="ui inverted vertical footer segment">
     <div class="ui center aligned container">
-      <div class="ui stackable inverted divided grid">
+      <!--<div class="ui stackable inverted divided grid">
         <div class="three wide column">
           <h4 class="ui inverted header">Group 1</h4>
           <div class="ui inverted link list">
@@ -32,7 +32,7 @@
           <h4 class="ui inverted header">Footer Header</h4>
           <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
         </div>
-      </div>
+      </div>-->
       
       <div class="ui inverted section divider"></div>
       <img src="/assets/images/logo.png" class="ui centered mini image">

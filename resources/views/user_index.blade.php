@@ -29,7 +29,7 @@
           
         @foreach ($users as $item)
             <tr>
-              <td><a href="/user/{{ $item->id}}">{{ $item->name}}</a></td>
+              <td><!--<a href="/user/{{ $item->id}}">-->{{ $item->name}}<!--</a>--></td>
               <td>{{ $item->email}}</td>
               <td>
                 @if ($item->access_role == "user")

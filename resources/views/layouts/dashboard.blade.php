@@ -48,6 +48,7 @@
       </a>
       <a href="/dashboard" class="item">Home</a>
       <a class="item" href="/dashboard/add_employee">Add Employee</a>
+      <a class="item" href="/logs">Logs</a>
       <div class="right menu">
         <!--
         <div class="item">

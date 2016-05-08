@@ -278,4 +278,17 @@ class DashboardController extends Controller
         }
         return view('super_add_employee');
     }
+    
+    public function getLogs(){
+        if(!Auth::user()){
+            return Redirect::to('/admin');
+        }
+        
+        if(Auth::user()->access_role == "user"){
+            $verdicts = VerdictList::with('pending_lists')->with('user')->where('user_id', Auth::user()->id)->get();
+        }else{
+            $verdicts = VerdictList::with('pending_lists')->with('user')->get();
+        }
+        return view('logs', ['verdicts' => $verdicts]);
+    }
 }

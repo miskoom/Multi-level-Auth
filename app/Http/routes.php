@@ -37,3 +37,5 @@ Route::get('/super_dashboard/employee_info/{id}', "DashboardController@superGetE
 Route::get('/super_dashboard/add_employee', "DashboardController@superGetAddEmployee");
 Route::post('/super_dashboard/add_employee', "DashboardController@superAddEmployee");
 Route::post('/super_dashboard/employee/{id}', "DashboardController@superSendConfirm");
+
+Route::get('/logs', "DashboardController@getLogs");

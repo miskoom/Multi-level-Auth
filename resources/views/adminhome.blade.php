@@ -1,13 +1,15 @@
 @extends('layouts.admin_dashboard')
+@section('scripts')
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.11/js/dataTables.semanticui.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>
+@stop
 
+@section('stylesheets')
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.11/css/dataTables.semanticui.min.css"/>
+@stop
 @section('content')
-    <!--<div class="ui icon message">
-      <i class="info circle icon"></i>
-      <div class="content">
-        List of names to approve
-      </div>
-    </div>-->
-    
     @if (count($errors) > 0)
         <div class="ui message" style="color:#9F3A38;font-size: 1em;box-shadow: 0px 0px 0px 1px #E0B4B4 inset, 0px 0px 0px 0px transparent; background-color: #FFF6F6;">
             <ul class="list">
@@ -18,7 +20,7 @@
         </div>
     @endif
     
-    <div class="ui attached message">
+    <div class="ui message">
       <div class="header">
         List of staff Pending Approval!
       </div>
@@ -26,18 +28,13 @@
     </div>
     
     {!! Form::open(array('url' => '/send_verdict', 'method'=>'POST', 'class'=>'ui small equal width form')) !!}
-    <table class="ui bottom attached celled table">
+    <table class="ui bottom celled table" id="dtable">
       <thead>
         <th>
-          <!--<input type="checkbox" name="selectAll" id="checkAll"/></th>-->
-          
-          
-                  <div class="inline field">
-                    <div class="ui checkbox">
-                      <input class="hidden" name="selectAll" type="checkbox" id="checkAll"/>
-                      <label for="">All</label>
-                    </div>
-                  </div>
+          <div class="ui checkbox">
+            <input class="hidden" name="selectAll" type="checkbox" id="checkAll"/>
+            <label for="">All</label>
+          </div>
         </th>
         <th>First Name</th>
         <th>other Names</th>
@@ -50,14 +47,11 @@
         @foreach ($pendingLists as $item)
             <tr>
               <td>
-                
-                <div class="ui form">
                   <div class="inline field">
                     <div class="ui checkbox">
                       <input class="hidden" type="checkbox" name="selected[]" value="{{ $item->id }}" />
                     </div>
                   </div>
-                </div>
               </td>
               <td>{{ $item->first_name}}</td>
               <td>{{ $item->last_name}} {{ $item->middle_name}}</td>
@@ -68,20 +62,15 @@
         @endforeach
       </tbody>
     </table>
-    
       <div class="field">
         <label>Comment</label>
         <textarea rows="2" name="comment"></textarea>
       </div>
-    
     <br/>
-    
-    <!--<span><input type="submit" name="approve" class="ui primary button" value="Approve"></span>-->
-    <!--<span><input type="submit" name="disapprove" class="ui button" value="Disapprove"></span>-->
     <div class="ui buttons">
-    <button class="ui button" name="disapprove" value="Disapprove">Disapprove</button>
-    <div class="or"></div>
-    <button class="ui positive button" name="approve" value="Approve">Approve</button>
+      <button class="ui button" name="disapprove" value="Disapprove">Disapprove</button>
+      <div class="or"></div>
+      <button class="ui positive button" name="approve" value="Approve">Approve</button>
     </div>
     {!! Form::close() !!}
     <script type="text/javascript">
@@ -92,5 +81,6 @@
     });
     
     $('.ui.checkbox').checkbox();
+    $('#dtable').DataTable();
     </script>
 @stop

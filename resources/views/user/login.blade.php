@@ -101,7 +101,7 @@
         <div class="field">
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <input type="text" name="email" placeholder="E-mail address">
+            <input type="text" name="email" placeholder="e.g super@payroll.ng">
           </div>
         </div>
         <div class="field">

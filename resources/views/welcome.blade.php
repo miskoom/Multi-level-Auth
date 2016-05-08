@@ -27,6 +27,12 @@
   <link rel="stylesheet" type="text/css" href="/uilib/components/transition.css">
 
   <style type="text/css">
+  
+  #bgpush{
+        background-image: url('/assets/images/bg-about.jpg');
+        background-position: center;
+        background-attachment: fixed;
+    }
 
     .hidden.menu {
       display: none;
@@ -187,11 +193,11 @@
 
 
 <!-- Page Contents -->
-<div class="pusher">
-  <div class="ui teal vertical masthead center aligned segment">
+<div class="pusher" id="bgpush">
+  <div class="ui default vertical masthead center aligned segment">
 
     <div class="ui container">
-      <div class="ui large secondary teal pointing menu">
+      <div class="ui large secondary default pointing menu">
         <a class="toc item">
           <i class="sidebar icon"></i>
         </a>
@@ -200,14 +206,14 @@
         <a class="item">Company</a>
         <a class="item">Careers</a>-->
         <div class="right item">
-          <a onclick="loginPage();" class="ui teal button">Log in</a>
+          <a onclick="loginPage();" class="ui default button">Log in</a>
           <!--<a class="ui inverted button">Sign Up</a>-->
         </div>
       </div>
     </div>
 
     <div class="ui text container">
-      <h1 class="ui teal header">
+      <h1 class="ui default header">
         Payroll Module
       </h1>
       <h2>Management of the payroll management system</h2>

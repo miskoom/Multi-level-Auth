@@ -33,6 +33,9 @@
   <style type="text/css">
     body {
       background-color: #DADADA;
+      background-image: url('/assets/images/bg-about.jpg');
+        background-position: center;
+        background-attachment: fixed;
     }
     body > .grid {
       height: 100%;
@@ -87,7 +90,7 @@
 
 <div class="ui middle aligned center aligned grid">
   <div class="column">
-    <h2 class="ui teal image header">
+    <h2 class="ui default image header">
       <img src="/assets/images/logo.png" class="image">
       <div class="content">
         Log-in to your account

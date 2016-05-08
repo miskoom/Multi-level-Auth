@@ -49,6 +49,29 @@ class DashboardController extends Controller
             $verdict->save();
         }
         
+        
+        $authorizedPersons = User::where('access_role', 'user')->get();
+        $totalAuthorizedPersons = count($authorizedPersons);
+        for($i = 0; $i < count($selected); $i++){
+            if (!$request->has('approve')) continue;
+            $employeeVerdicts = VerdictList::with('pending_lists')->with('user')->where('pending_lists_id', $selected[$i])->get();
+            $targetEmployee = PendingList::find($selected[$i]);
+            $confirmCounter = 0;
+            foreach($authorizedPersons as $authorizedPerson){
+                foreach($employeeVerdicts as $employeeVerdict){
+                    if($employeeVerdict->status == 1 && $employeeVerdict->user->id == $authorizedPerson->id){
+                        $confirmCounter++;
+                    }
+                }
+            }
+            if($confirmCounter == $totalAuthorizedPersons/* || $confirmCounter == 3*/){
+                $targetEmployee->status = 1;
+                $targetEmployee->save();
+            }
+        }
+        
+        
+        
         return Redirect::to('/admin');
     }
     

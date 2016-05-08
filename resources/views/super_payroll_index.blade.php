@@ -1,14 +1,14 @@
 @extends('layouts.super_dashboard')
 
 @section('scripts')
-  <!--<script type="text/javascript" src="//cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>-->
-  <script type="text/javascript" src="https://cdn.datatables.net/r/zf-5.5.2/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.11/js/dataTables.semanticui.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>
 @stop
 
 @section('stylesheets')
-  <!--<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css">-->
-  <!--<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/r/zf-5.5.2/jqc-1.11.3,dt-1.10.8/datatables.min.css">-->
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/r/zf-5.5.2/jqc-1.11.3,dt-1.10.8/datatables.min.css"/>
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.11/css/dataTables.semanticui.min.css"/>
 @stop
 
 @section('content')
@@ -32,7 +32,7 @@
           
         @foreach ($pendingLists as $item)
             <tr>
-              <td><a href="/super_dashboard/employee/{{ $item->id}}">{{ $item->first_name}}</a></td>
+              <td><a href="/super_dashboard/employee_info/{{ $item->id}}">{{ $item->first_name}}</a></td>
               <td>{{ $item->last_name}} {{ $item->middle_name}}</td>
               <td>{{ $item->service_no}}</td>
               <td>{{ $item->department}}</td>

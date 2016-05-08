@@ -107,10 +107,11 @@
             <input type="password" name="password" placeholder="Password">
           </div>
         </div>
-        
+        <!--
         <div class="field">
             <center>{!! Recaptcha::render() !!}</center>    
         </div>
+        -->
         
         <div class="ui fluid large teal submit button">Login</div>
       </div>

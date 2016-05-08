@@ -45,23 +45,15 @@
         Payroll Auth
       </a>
       <a href="/admin" class="item">Home</a>
-      <div class="ui simple dropdown item">
-        Menu <i class="dropdown icon"></i>
-        <div class="menu">
-          <a class="item" href="/logout">Log out</a>
-          <!--<a class="item" href="#">Link Item</a>-->
-          <!--<div class="divider"></div>-->
-          <!--<div class="header">Header Item</div>-->
-          <!--<div class="item">-->
-          <!--  <i class="dropdown icon"></i>-->
-          <!--  Sub Menu-->
-          <!--  <div class="menu">-->
-          <!--    <a class="item" href="#">Link Item</a>-->
-          <!--    <a class="item" href="#">Link Item</a>-->
-          <!--  </div>-->
-          <!--</div>-->
-          <!--<a class="item" href="#">Link Item</a>-->
-        </div>
+      <div class="right menu">
+        <!--
+        <div class="item">
+          <div class="ui icon input">
+            <input placeholder="Search..." type="text">
+            <i class="search link icon"></i>
+          </div>
+        </div>-->
+        <a class="ui item" href="/logout">Log out</a>
       </div>
     </div>
   </div>

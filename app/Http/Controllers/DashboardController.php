@@ -25,7 +25,7 @@ class DashboardController extends Controller
             return Redirect::to('/login');
         }
         
-        if(!$request->has('approve') && !$request->has('disapprove')){
+        if($request->input('action') != 'approve' && $request->input('action') != 'disapprove'){
             return Redirect::to('/admin')->withErrors("Invalid Action");
         }
         
@@ -38,7 +38,7 @@ class DashboardController extends Controller
         
         for($i = 0; $i < count($selected); $i++){
             $verdict = new VerdictList;
-            if ($request->has('approve')) {
+            if ($request->input('action') == 'approve') {
                 $verdict->status = 1;
             }else{
                 $verdict->status = 0;

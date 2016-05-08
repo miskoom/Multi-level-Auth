@@ -27,7 +27,7 @@
       <p>Select the names of employees below to approve or disapprove for inclusion into the payroll.</p>
     </div>
     
-    {!! Form::open(array('url' => '/send_verdict', 'method'=>'POST', 'class'=>'ui small equal width form')) !!}
+    {!! Form::open(array('url' => '/send_verdict', 'method'=>'POST', 'class'=>'ui small equal width form', 'id'=>"form")) !!}
     <table class="ui bottom celled table" id="dtable">
       <thead>
         <th>
@@ -68,19 +68,86 @@
       </div>
     <br/>
     <div class="ui buttons">
-      <button class="ui button" name="disapprove" value="Disapprove">Disapprove</button>
+      <button class="ui button" type="submit" name="disapprove" value="Disapprove">Disapprove</button>
       <div class="or"></div>
-      <button class="ui positive button" name="approve" value="Approve">Approve</button>
+      <button class="ui positive button" type="submit" name="approve" value="Approve">Approve</button>
+      <input type="hidden" name="action" value="" id="action"/>
     </div>
     {!! Form::close() !!}
+    
+    
+    <div class="ui small modal positive">
+      <i class="close icon"></i>
+      <div class="header">
+        Confirm Submission
+      </div>
+      <div class="content">
+        <div class="description">
+          <div class="ui header">Approve the selected names</div>
+          <p>It's important to verify that the names selected would be authorized for entry in the master list of the payroll </p>
+        </div>
+      </div>
+      <div class="actions">
+        <div class="ui black deny button">
+          Cancel
+        </div>
+        <div id="positive_continue" class="ui positive right labeled icon button">
+          Continue >>
+          <i class="checkmark icon"></i>
+        </div>
+      </div>
+    </div>
+    
+    <div class="ui small modal negative">
+      <i class="close icon"></i>
+      <div class="header">
+        Confirm Submission
+      </div>
+      <div class="content">
+        <div class="description">
+          <div class="ui header">Disapprove the selected names</div>
+          <p>Disapproving the selected names would prevent the names from being entered in the master list of the payroll.</p>
+        </div>
+      </div>
+      <div class="actions">
+        <div class="ui black deny button">
+          Cancel
+        </div>
+        <div id="negative_continue" class="ui positive right labeled icon button">
+          Continue >>
+          <i class="checkmark icon"></i>
+        </div>
+      </div>
+    </div>
+    
+
     <script type="text/javascript">
     $( document ).ready(function() {
         $("#checkAll").change(function () {
             $("input:checkbox").prop('checked', $(this).prop("checked"));
         });
+        
+         $('.ui.checkbox').checkbox();
+        $('#dtable').DataTable();
+        $("#form").submit(function(e){
+          e.preventDefault();
+          var btnClicked = $('input[type="submit"], button[type="submit"]',this).filter(':focus').attr('name');
+          if(btnClicked == "approve"){
+            $('.ui.small.modal.positive').modal('show');
+          }else if(btnClicked == "disapprove"){
+            $('.ui.small.modal.negative').modal('show'); 
+          }
+        });
+        
+        $('#positive_continue').click(function(e){
+          $('#action').val('approve');
+          document.getElementById('form').submit();
+        });
+        
+        $('#negative_continue').click(function(e){
+          $('#action').val('disapprove');
+          document.getElementById('form').submit();
+        });
     });
-    
-    $('.ui.checkbox').checkbox();
-    $('#dtable').DataTable();
     </script>
 @stop

@@ -184,7 +184,7 @@ class DashboardController extends Controller
         }
         
         $pendingLists = PendingList::where('status', 1)->get();
-        return view('payroll_index', ['pendingLists' => $pendingLists]);
+        return view('super_payroll_index', ['pendingLists' => $pendingLists]);
     }
     
     public function getSuperGodPage(){

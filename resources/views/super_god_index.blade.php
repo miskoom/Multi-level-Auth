@@ -28,7 +28,7 @@
         <th>Department</th>
         <th>Employment Date</th>
         <th>Added By</th>
-        <!--<th>Created At</th>-->
+        <th>Created At</th>
       </thead>
       <tbody>
           
@@ -41,7 +41,7 @@
               <td>{{ $item->department}}</td>
               <td>{{ $item->employment_date}}</td>
               <td>{{ $item->user->name}}</td>
-              <!--<td>{{ $item->created_at}}</td>-->
+              <td>{{ $item->created_at}}</td>
             </tr>
         @endforeach
       </tbody>

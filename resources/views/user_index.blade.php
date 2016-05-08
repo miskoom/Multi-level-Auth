@@ -33,7 +33,7 @@
               <td>{{ $item->email}}</td>
               <td>
                 @if ($item->access_role == "user")
-                    {{ 'user' }}
+                    {{ 'User' }}
                 @elseif ($item->access_role == "god")
                     {{ 'Manager' }}
                 @elseif ($item->access_role == "supergod")

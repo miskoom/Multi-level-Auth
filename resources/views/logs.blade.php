@@ -34,7 +34,7 @@
         @foreach ($verdicts as $item)
             <tr>
               <td><i class="{{ $item->status != 0 ? 'checkmark box' : 'thumbs outline down' }} icon"></i></td>
-              <td><a href="/super_dashboard/employee_info/{{ $item->pending_lists->id}}">{{ $item->pending_lists->first_name}}</a></td>
+              <td><a href="/employee_info/{{ $item->pending_lists->id}}">{{ $item->pending_lists->first_name}}</a></td>
               <td>{{ $item->pending_lists->last_name}} {{ $item->pending_lists->middle_name}}</td>
               <td>{{ $item->pending_lists->service_no}}</td>
               <td>{{ $item->pending_lists->department}}</td>

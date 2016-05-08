@@ -263,13 +263,13 @@ class DashboardController extends Controller
         }
     }
     
-    public function superGetEmployeeInfo($id){
-        if(Auth::user()->access_role != "supergod"){
+    public function getEmployeeInfo($id){
+        if(!Auth::user()){
             return Redirect::to('/login');
         }
         
         $targetEmployee = PendingList::with('user')->find($id);
-        return view('super_show_employee_info', ['employee' => $targetEmployee]);
+        return view('show_employee_info', ['employee' => $targetEmployee]);
     }
     
     public function superGetAddEmployee(){

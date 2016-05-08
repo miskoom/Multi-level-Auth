@@ -7,6 +7,32 @@
       </div>
       <p>Autorization history for the user.</p>
     </div>
+    <table class="ui bottom attached celled table">
+        <tr>
+            <td>Full Name</td>
+            <td>{{ $targetEmployee->first_name}}, {{ $targetEmployee->middle_name}} {{ $targetEmployee->last_name}}</td>
+        </tr>
+        <tr>
+            <td>Department</td>
+            <td>{{ $targetEmployee->department}}</td>
+        </tr>
+        <tr>
+            <td>Service Number</td>
+            <td>{{ $targetEmployee->service_no}}</td>
+        </tr>
+        <tr>
+            <td>Employment Date</td>
+            <td>{{ $targetEmployee->employment_date}}</td>
+        </tr>
+        <tr>
+            <td>Added By</td>
+            <td>{{ $targetEmployee->user->name}}</td>
+        </tr>
+        <tr>
+            <td>Created Date</td>
+            <td>{{ $targetEmployee->created_at}}</td>
+        </tr>
+    </table>
     <?php
     $count = count($employee);
     if($count != 0){

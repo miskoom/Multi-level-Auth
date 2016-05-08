@@ -56,7 +56,7 @@
             <i class="search link icon"></i>
           </div>
         </div>-->
-        <a class="ui item" href="/logout">Log out</a>
+        <a class="ui item" href="/logout">Log out [{{Auth::user()->name}}]</a>
       </div>
     </div>
   </div>

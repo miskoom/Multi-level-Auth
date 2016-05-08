@@ -33,9 +33,9 @@ Route::post('/dashboard/employee/{id}', "DashboardController@sendConfirm");
 Route::get('/super_dashboard', "DashboardController@getSuperGodPage");
 Route::get('/super_dashboard/payroll', "DashboardController@getPayroll");
 Route::get('/super_dashboard/employee/{id}', "DashboardController@superGetEmployee");
-Route::get('/super_dashboard/employee_info/{id}', "DashboardController@superGetEmployeeInfo");
 Route::get('/super_dashboard/add_employee', "DashboardController@superGetAddEmployee");
 Route::post('/super_dashboard/add_employee', "DashboardController@superAddEmployee");
 Route::post('/super_dashboard/employee/{id}', "DashboardController@superSendConfirm");
 
 Route::get('/logs', "DashboardController@getLogs");
+Route::get('/employee_info/{id}', "DashboardController@getEmployeeInfo");

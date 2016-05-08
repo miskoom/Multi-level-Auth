@@ -53,7 +53,7 @@
                     </div>
                   </div>
               </td>
-              <td>{{ $item->first_name}}</td>
+              <td><a href="/employee_info/{{$item->id}}">{{ $item->first_name}}</a></td>
               <td>{{ $item->last_name}} {{ $item->middle_name}}</td>
               <td>{{ $item->service_no}}</td>
               <td>{{ $item->department}}</td>

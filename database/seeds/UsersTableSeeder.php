@@ -49,12 +49,12 @@ class UsersTableSeeder extends Seeder
             'password' =>   Hash::make('password'),
         ));
         
-        User::create(array(
-            'name'     =>   'Joseph John',
-            'email'    =>   'd@payroll.ng',
-            'access_role' =>  'user',
-            'password' =>   Hash::make('password'),
-        ));
+        // User::create(array(
+        //     'name'     =>   'Joseph John',
+        //     'email'    =>   'd@payroll.ng',
+        //     'access_role' =>  'user',
+        //     'password' =>   Hash::make('password'),
+        // ));
         
     //     User::create(array(
     //         'name'     =>   'Feyit Stephen',

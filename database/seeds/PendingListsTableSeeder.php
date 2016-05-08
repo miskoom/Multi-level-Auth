@@ -24,7 +24,7 @@ class PendingListsTableSeeder extends Seeder
                 'department' => 'Finance',
                 'status' => 0,
                 'employment_date' => '4th Nov, 2016',
-                'user_id' => 1 //add another group to creat this entry - not admin
+                'user_id' => 2 //add another group to creat this entry - not admin
             ));
 
             PendingList::create(array(
@@ -35,7 +35,7 @@ class PendingListsTableSeeder extends Seeder
                 'department' => 'Engineering',
                 'status' => 0,
                 'employment_date' => '4th Nov, 2016',
-                'user_id' => 1
+                'user_id' => 2
             ));
 
             PendingList::create(array(
@@ -46,7 +46,7 @@ class PendingListsTableSeeder extends Seeder
                 'department' => 'Administration',
                 'status' => 0,
                 'employment_date' => '4th Nov, 2016',
-                'user_id' => 1
+                'user_id' => 2
             ));
             
             PendingList::create(array(

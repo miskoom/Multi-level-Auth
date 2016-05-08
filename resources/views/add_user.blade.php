@@ -41,7 +41,7 @@
     <div class="field">
       <div class="ui radio checkbox">
         <input value="user" class="hidden" tabindex="0" name="access_role" type="radio">
-        <label>User</label>
+        <label>Authorizer</label>
       </div>
     </div>
     <div class="field">

@@ -101,13 +101,13 @@
         <div class="field">
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <input type="text" name="email" placeholder="e.g super@payroll.ng">
+            <input type="text" name="email" placeholder="E-mail e.g super@payroll.ng">
           </div>
         </div>
         <div class="field">
           <div class="ui left icon input">
             <i class="lock icon"></i>
-            <input type="password" name="password" placeholder="e.g yahweh">
+            <input type="password" name="password" placeholder="Password e.g yahweh">
           </div>
         </div>
         <!--

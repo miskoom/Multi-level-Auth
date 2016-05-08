@@ -1,4 +1,4 @@
-@extends('layouts.super_dashboard')
+@extends(Auth::user()->access_role == "supergod" ? 'layouts.super_dashboard' : (Auth::user()->access_role == "god" ? 'layouts.dashboard' : 'layouts.admin_dashboard'))
 
 @section('content')
     <div class="ui attached message">

@@ -75,5 +75,5 @@ class UsersTableSeeder extends Seeder
     //         'access_role' =>  'user',
     //         'password' =>   Hash::make('password'),
     //     ));
-    // }
+    }
 }

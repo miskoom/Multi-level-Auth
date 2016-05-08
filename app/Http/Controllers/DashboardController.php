@@ -164,8 +164,7 @@ class DashboardController extends Controller
     
     public function sendConfirm(Request $request, $id){
         
-        if(Auth::user()->access_role != "god" || 
-            Auth::user()->access_role != "supergod"){
+        if(Auth::user()->access_role != "supergod"){
             return Redirect::to('/login');
         }
         $targetEmployee = PendingList::find($id);
@@ -247,5 +246,20 @@ class DashboardController extends Controller
         $pendingList->user()->associate(Auth::user());
         $pendingList->save();
         return Redirect::to('/super_dashboard');
+    }
+    
+    public function superSendConfirm(Request $request, $id){
+        
+        if(Auth::user()->access_role != "supergod"){
+            return Redirect::to('/login');
+        }
+        $targetEmployee = PendingList::find($id);
+        if($targetEmployee){
+            $targetEmployee->status = 1;
+            $targetEmployee->save();
+            return Redirect::to('/super_dashboard/employee/' . $id);
+        }else{
+            return Redirect::to('/super_dashboard/employee/' . $id);
+        }
     }
 }

@@ -34,3 +34,4 @@ Route::get('/super_dashboard', "DashboardController@getSuperGodPage");
 Route::get('/super_dashboard/payroll', "DashboardController@getPayroll");
 Route::get('/super_dashboard/employee/{id}', "DashboardController@superGetEmployee");
 Route::post('/super_dashboard/add_employee', "DashboardController@superAddEmployee");
+Route::post('/super_dashboard/employee/{id}', "DashboardController@superSendConfirm");

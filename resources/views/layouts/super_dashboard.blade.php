@@ -49,7 +49,7 @@
       <a href="/dashboard" class="item">Home</a>
       <div class="ui simple dropdown item"> Menu <i class="dropdown icon"></i>
         <div class="menu">
-          <a class="item" href="/dashboard/add_employee">Add Employee</a>
+          <a class="item" href="/super_dashboard/add_employee">Add Employee</a>
           <a class="item" href="/super_dashboard/payroll">Payroll</a>
           <a class="item" href="/logout">Log out</a>
           <!--

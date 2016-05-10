@@ -214,9 +214,9 @@
 
     <div class="ui text container">
       <h1 class="ui default header">
-        Payroll Module
+        Authorization Module
       </h1>
-      <h2>SECPAY MANAGEMENT SYSTEM</h2>
+      <h2>SecPAY Management System</h2>
       <div id="get_started" class="ui huge primary button">Get Started <i class="right arrow icon"></i></div>
     </div>
 
